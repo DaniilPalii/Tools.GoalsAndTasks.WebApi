@@ -14,5 +14,4 @@ internal static class Serialization
 }
 
 [JsonSerializable(typeof(Todo[]))]
-internal sealed partial class AppJsonSerializerContext : JsonSerializerContext
-{ }
+internal sealed partial class AppJsonSerializerContext : JsonSerializerContext;

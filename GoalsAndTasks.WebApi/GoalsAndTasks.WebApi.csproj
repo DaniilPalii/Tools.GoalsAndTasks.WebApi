@@ -5,13 +5,12 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<InvariantGlobalization>true</InvariantGlobalization>
-		<PublishAot>false</PublishAot>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="MartinCostello.OpenApi.Extensions" Version="1.0.0" />
-	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
-	  <PackageReference Include="Scalar.AspNetCore" Version="1.2.52" />
+		<PackageReference Include="MartinCostello.OpenApi.Extensions" Version="1.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+		<PackageReference Include="Scalar.AspNetCore" Version="1.2.52" />
 	</ItemGroup>
 
 </Project>
