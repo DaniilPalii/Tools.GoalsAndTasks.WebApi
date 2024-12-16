@@ -3,7 +3,7 @@ using Scalar.AspNetCore;
 
 namespace GoalsAndTasks.WebApi.Infrastructure;
 
-public static class ApiDocumentation
+public static class ApiReference
 {
 	public static void Configure(IHostApplicationBuilder builder)
 	{
@@ -16,7 +16,7 @@ public static class ApiDocumentation
 		application.MapOpenApi();
 		application.MapScalarApiReference(options =>
 		{
-			options.WithEndpointPrefix("/documentation/{documentName}");
+			options.WithEndpointPrefix("/reference/{documentName}");
 		});
 	}
 

@@ -3,11 +3,11 @@ using GoalsAndTasks.WebApi.Infrastructure;
 var builder = WebApplication.CreateSlimBuilder(args);
 
 Serialization.Configure(builder);
-ApiDocumentation.Configure(builder);
+ApiReference.Configure(builder);
 
 var application = builder.Build();
 
-ApiDocumentation.Map(application);
+ApiReference.Map(application);
 
 var sampleTodos = new Todo[]
 {
