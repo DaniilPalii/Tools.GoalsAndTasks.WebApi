@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.WebApi", "GoalsAndTasks.WebApi\GoalsAndTasks.WebApi.csproj", "{56AD370F-A971-40B2-A0DB-B1D59FC64858}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.DataPersistence", "GoalsAndTasks.DataPersistence\GoalsAndTasks.DataPersistence.csproj", "{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.Domain", "GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj", "{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{56AD370F-A971-40B2-A0DB-B1D59FC64858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56AD370F-A971-40B2-A0DB-B1D59FC64858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56AD370F-A971-40B2-A0DB-B1D59FC64858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

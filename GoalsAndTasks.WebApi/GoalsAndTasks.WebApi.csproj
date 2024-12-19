@@ -14,4 +14,9 @@
 		<PackageReference Include="Scalar.AspNetCore" Version="1.2.52" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\GoalsAndTasks.DataPersistence\GoalsAndTasks.DataPersistence.csproj" />
+	  <ProjectReference Include="..\GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj" />
+	</ItemGroup>
+
 </Project>
