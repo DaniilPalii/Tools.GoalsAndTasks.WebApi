@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using Task = GoalsAndTasks.WebApi.TransferValues.Task;
 
 namespace GoalsAndTasks.WebApi.Infrastructure;
 
@@ -14,5 +13,5 @@ internal static class Serialization
 	}
 }
 
-[JsonSerializable(typeof(Task[]))]
+[JsonSerializable(typeof(TransferValues.Task[]))]
 internal sealed partial class AppJsonSerializerContext : JsonSerializerContext;

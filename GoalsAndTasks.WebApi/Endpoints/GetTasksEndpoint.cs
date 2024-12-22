@@ -1,4 +1,6 @@
 using FastEndpoints;
+using GoalsAndTasks.DataPersistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace GoalsAndTasks.WebApi.Endpoints;
 
@@ -12,15 +14,19 @@ public class GetTasksEndpoint : EndpointWithoutRequest<List<TransferValues.Task>
 
 	public override async Task HandleAsync(CancellationToken cancellationToken)
 	{
-		var tasks = new List<TransferValues.Task>
-		{
-			new(1, "Walk the dog"),
-			new(2, "Do the dishes", DateOnly.FromDateTime(DateTime.Now)),
-			new(3, "Do the laundry", DateOnly.FromDateTime(DateTime.Now.AddDays(1))),
-			new(4, "Clean the bathroom"),
-			new(5, "Clean the car", DateOnly.FromDateTime(DateTime.Now.AddDays(2))),
-		};
+		var databaseContext = TryResolve<DatabaseContext>()!;
 
-		await SendOkAsync(tasks, cancellationToken);
+		var tasks = await databaseContext.Tasks
+			.ToListAsync(cancellationToken);
+
+		var values = tasks
+			.Select(task => new TransferValues.Task(
+				task.Id,
+				task.Title,
+				task.DueDate,
+				task.IsComplete))
+			.ToList();
+
+		await SendOkAsync(values, cancellationToken);
 	}
 }

@@ -4,7 +4,12 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<InvariantGlobalization>true</InvariantGlobalization>
+		<Configurations>Debug;Release;Production</Configurations>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)' == 'Production' ">
+		<Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -15,8 +20,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\GoalsAndTasks.DataPersistence\GoalsAndTasks.DataPersistence.csproj" />
-	  <ProjectReference Include="..\GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj" />
+		<ProjectReference Include="..\GoalsAndTasks.DataPersistence\GoalsAndTasks.DataPersistence.csproj" />
+		<ProjectReference Include="..\GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(Configuration)' != 'Production' ">
+		<ProjectReference Include="..\GoalsAndTasks.DatabaseDesign\GoalsAndTasks.DatabaseDesign.csproj" />
 	</ItemGroup>
 
 </Project>

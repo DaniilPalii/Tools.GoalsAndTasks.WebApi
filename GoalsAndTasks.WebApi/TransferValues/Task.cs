@@ -3,5 +3,5 @@ namespace GoalsAndTasks.WebApi.TransferValues;
 public sealed record Task(
 	long Id,
 	string Title,
-	DateOnly? DueBy = null,
+	DateOnly? DueDate = null,
 	bool IsComplete = false);
