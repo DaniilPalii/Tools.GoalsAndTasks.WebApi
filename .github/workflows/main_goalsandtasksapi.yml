@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,19 +21,21 @@ jobs:
         with:
           dotnet-version: '9.x'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Production
+      - name: Build web API
+        run: dotnet publish GoalsAndTasks.WebApi/GoalsAndTasks.WebApi.csproj -c Production -o ${{env.DOTNET_ROOT}}/artifacts
 
-      - name: dotnet publish
-        run: dotnet publish -c Production -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Create database migration bundle
+        run: |
+          dotnet tool install --global dotnet-ef
+          dotnet ef migrations bundle --project GoalsAndTasks.DatabaseDesign/GoalsAndTasks.DatabaseDesign.csproj -o ${{env.DOTNET_ROOT}}/artifacts/database_migration_bundle
 
-      - name: Upload artifact for deployment job
+      - name: Upload artifacts for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: artifacts
+          path: ${{env.DOTNET_ROOT}}/artifacts
 
-  deploy:
+  Deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -41,10 +43,21 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifacts from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: artifacts
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Set execute permissions for database migration bundle
+        run: chmod +x ./database_migration_bundle
+
+      - name: Run EF Migrations
+        run: ./database_migration_bundle --connection "${{ secrets.DATABASE_CONNECTION_STRING }}"
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
