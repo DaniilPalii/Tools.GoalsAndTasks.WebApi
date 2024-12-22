@@ -16,6 +16,5 @@ await Database.MigrateAsync(application);
 
 application.MapFastEndpoints();
 ApiReference.Map(application);
-application.Map("/", () => Results.Redirect("/reference/v1"));
 
 application.Run();
