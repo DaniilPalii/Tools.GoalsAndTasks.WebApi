@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GoalsAndTasks.DatabaseDesign.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateTableTasks : Migration
+    public partial class AddTasksTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,6 +18,7 @@ namespace GoalsAndTasks.DatabaseDesign.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    StartDate = table.Column<DateOnly>(type: "date", nullable: true),
                     DueDate = table.Column<DateOnly>(type: "date", nullable: true),
                     IsComplete = table.Column<bool>(type: "bit", nullable: false)
                 },

@@ -2,15 +2,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoalsAndTasks.DataPersistence;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options)
 {
 	public virtual DbSet<Entities.Task> Tasks { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
-		optionsBuilder.UseSqlServer("Server=localhost;Database=GoalsAndTasks;Trusted_Connection=True;TrustServerCertificate=True;");
-
 		optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+#if DEBUG
+		optionsBuilder.EnableSensitiveDataLogging();
+		optionsBuilder.EnableDetailedErrors();
+#endif
 	}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)

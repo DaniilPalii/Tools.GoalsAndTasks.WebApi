@@ -9,6 +9,8 @@ public class Task
 
 	public required string Title { get; set; }
 
+	public DateOnly? StartDate { get; set; }
+
 	public DateOnly? DueDate { get; set; }
 
 	public bool IsComplete { get; set; }
