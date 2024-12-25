@@ -28,7 +28,11 @@ public static class Database
 #if !PRODUCTION
 		options.UseSqlServer(
 			connectionString,
-			builder => builder.MigrationsAssembly(typeof(DatabaseDesign.AssemblyMarker).Assembly));
+			builder =>
+			{
+				builder.MigrationsAssembly(typeof(DatabaseDesign.AssemblyMarker).Assembly);
+				builder.EnableRetryOnFailure(maxRetryCount: 5);
+			});
 #else
 		options.UseSqlServer(connectionString);
 #endif
