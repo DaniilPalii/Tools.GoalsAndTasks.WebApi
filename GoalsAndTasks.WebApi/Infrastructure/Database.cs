@@ -23,7 +23,12 @@ public static class Database
 	private static void ConfigureDatabaseContext(IServiceProvider services, DbContextOptionsBuilder options)
 	{
 		var configuration = services.GetRequiredService<IConfiguration>();
-		var connectionString = configuration.GetConnectionString("Database");
+		var connectionString =
+#if !PRODUCTION
+			configuration.GetConnectionString("Database");
+#else
+			Environment.GetEnvironmentVariable("SQLCONNSTR_Database");
+#endif
 
 		options.UseSqlServer(
 			connectionString,
