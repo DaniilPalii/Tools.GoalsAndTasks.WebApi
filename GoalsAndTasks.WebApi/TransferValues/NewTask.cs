@@ -1,7 +1,6 @@
 namespace GoalsAndTasks.WebApi.TransferValues;
 
-public sealed record Task(
-	long Id,
+public sealed record NewTask(
 	string Title,
 	DateOnly? StartDate,
 	TimeOnly? StartTime,

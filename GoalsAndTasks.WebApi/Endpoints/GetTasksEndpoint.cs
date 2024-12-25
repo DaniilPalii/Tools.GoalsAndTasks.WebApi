@@ -21,10 +21,13 @@ public class GetTasksEndpoint : EndpointWithoutRequest<List<TransferValues.Task>
 
 		var values = tasks
 			.Select(task => new TransferValues.Task(
-				task.Id,
-				task.Title,
-				task.DueDate,
-				task.IsComplete))
+				Id: task.Id,
+				Title: task.Title,
+				StartDate: task.StartDate,
+				StartTime: task.StartTime,
+				DueDate: task.DueDate,
+				DueTime: task.DueTime,
+				IsComplete: task.IsComplete))
 			.ToList();
 
 		await SendOkAsync(values, cancellationToken);

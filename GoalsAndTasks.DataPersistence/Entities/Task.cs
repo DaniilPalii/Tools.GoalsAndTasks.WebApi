@@ -11,7 +11,11 @@ public class Task
 
 	public DateOnly? StartDate { get; set; }
 
+	public TimeOnly? StartTime { get; set; }
+
 	public DateOnly? DueDate { get; set; }
+
+	public TimeOnly? DueTime { get; set; }
 
 	public bool IsComplete { get; set; }
 
