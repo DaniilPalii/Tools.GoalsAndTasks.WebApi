@@ -25,16 +25,14 @@ public static class Database
 		var configuration = services.GetRequiredService<IConfiguration>();
 		var connectionString = configuration.GetConnectionString("Database");
 
-#if !PRODUCTION
 		options.UseSqlServer(
 			connectionString,
 			builder =>
 			{
+#if !PRODUCTION
 				builder.MigrationsAssembly(typeof(DatabaseDesign.AssemblyMarker).Assembly);
+#endif
 				builder.EnableRetryOnFailure(maxRetryCount: 5);
 			});
-#else
-		options.UseSqlServer(connectionString);
-#endif
 	}
 }
