@@ -14,9 +14,9 @@ public static class Database
 	public static async Task MigrateAsync(WebApplication application)
 	{
 		await using var serviceScope = application.Services.CreateAsyncScope();
-		await using var designDatabaseContext = serviceScope.ServiceProvider.GetRequiredService<DatabaseContext>();
+		await using var databaseContext = serviceScope.ServiceProvider.GetRequiredService<DatabaseContext>();
 
-		await designDatabaseContext.Database.MigrateAsync();
+		await databaseContext.Database.MigrateAsync();
 	}
 #endif
 
@@ -30,7 +30,7 @@ public static class Database
 			builder =>
 			{
 #if !PRODUCTION
-				builder.MigrationsAssembly(typeof(DatabaseDesign.AssemblyMarker).Assembly);
+				builder.MigrationsAssembly(DatabaseDesign.Assembly.Name);
 #endif
 				builder.EnableRetryOnFailure(maxRetryCount: 5);
 			});

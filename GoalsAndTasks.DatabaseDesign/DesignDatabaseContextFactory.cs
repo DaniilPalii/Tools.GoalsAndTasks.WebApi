@@ -11,7 +11,7 @@ public sealed class DesignDatabaseContextFactory : IDesignTimeDbContextFactory<D
 		var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
 
 		optionsBuilder.UseSqlServer(
-			builder => builder.MigrationsAssembly(typeof(DatabaseDesign.AssemblyMarker).Assembly));
+			builder => builder.MigrationsAssembly(Assembly.Name));
 
 		return new(optionsBuilder.Options);
 	}
