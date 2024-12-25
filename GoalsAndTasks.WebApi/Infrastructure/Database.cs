@@ -32,7 +32,7 @@ public static class Database
 #if !PRODUCTION
 				builder.MigrationsAssembly(DatabaseDesign.Assembly.Name);
 #endif
-				builder.EnableRetryOnFailure(maxRetryCount: 5);
+				builder.EnableRetryOnFailure(maxRetryCount: 10);
 			});
 	}
 }
