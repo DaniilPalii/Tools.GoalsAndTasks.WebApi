@@ -56,8 +56,8 @@ jobs:
       - name: Set execute permissions for database migration bundle
         run: chmod +x ./database_migration_bundle
 
-#      - name: Run database migrations
-#        run: ./database_migration_bundle --connection "${{ secrets.DATABASE_CONNECTION_STRING }}"
+      - name: Run database migrations
+        run: ./database_migration_bundle --connection "${{ secrets.DATABASE_CONNECTION_STRING }}"
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
