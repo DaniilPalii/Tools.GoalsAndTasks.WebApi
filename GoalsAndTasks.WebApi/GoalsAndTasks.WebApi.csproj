@@ -21,7 +21,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\GoalsAndTasks.WebApi.DataPersistence\GoalsAndTasks.WebApi.DataPersistence.csproj" />
-		<ProjectReference Include="..\GoalsAndTasks.WebApi.Domain\GoalsAndTasks.WebApi.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(Configuration)' != 'Azure' ">
