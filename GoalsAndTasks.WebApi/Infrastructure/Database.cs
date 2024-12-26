@@ -10,7 +10,7 @@ public static class Database
 		builder.Services.AddDbContext<DatabaseContext>(ConfigureDatabaseContext);
 	}
 
-#if !PRODUCTION
+#if !AZURE
 	public static async Task MigrateAsync(WebApplication application)
 	{
 		await using var serviceScope = application.Services.CreateAsyncScope();
@@ -24,7 +24,7 @@ public static class Database
 	{
 		var configuration = services.GetRequiredService<IConfiguration>();
 		var connectionString =
-#if !PRODUCTION
+#if !AZURE
 			configuration.GetConnectionString("Database");
 #else
 			Environment.GetEnvironmentVariable("SQLCONNSTR_Database");
@@ -34,7 +34,7 @@ public static class Database
 			connectionString,
 			builder =>
 			{
-#if !PRODUCTION
+#if !AZURE
 				builder.MigrationsAssembly(DatabaseDesign.Assembly.Name);
 #endif
 				builder.EnableRetryOnFailure(maxRetryCount: 10);

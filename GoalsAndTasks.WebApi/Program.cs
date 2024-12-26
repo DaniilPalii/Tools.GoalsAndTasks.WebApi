@@ -10,7 +10,7 @@ ApiReference.Configure(builder);
 
 var application = builder.Build();
 
-#if !PRODUCTION
+#if !AZURE
 await Database.MigrateAsync(application);
 #endif
 

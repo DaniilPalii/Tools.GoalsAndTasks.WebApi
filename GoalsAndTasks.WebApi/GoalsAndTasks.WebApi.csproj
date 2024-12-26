@@ -4,11 +4,11 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Configurations>Debug;Release;Production</Configurations>
+		<Configurations>Debug;Release;Azure</Configurations>
 		<Platforms>AnyCPU</Platforms>
 	</PropertyGroup>
 
-	<PropertyGroup Condition=" '$(Configuration)' == 'Production' ">
+	<PropertyGroup Condition=" '$(Configuration)' == 'Azure' ">
 		<Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
 	</PropertyGroup>
 

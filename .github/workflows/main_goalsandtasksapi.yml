@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '9.x'
 
       - name: Build web API
-        run: dotnet publish GoalsAndTasks.WebApi/GoalsAndTasks.WebApi.csproj -c Production -o ${{env.DOTNET_ROOT}}/artifacts
+        run: dotnet publish GoalsAndTasks.WebApi/GoalsAndTasks.WebApi.csproj -c Azure -o ${{env.DOTNET_ROOT}}/artifacts
 
       - name: Create database migration bundle
         run: |
