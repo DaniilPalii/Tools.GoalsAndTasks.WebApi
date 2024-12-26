@@ -35,7 +35,7 @@ public static class DevelopmentDatabase
 	private static string? GetConnectionString(IServiceProvider services)
 	{
 		var configuration = services.GetRequiredService<IConfiguration>();
-		return configuration.GetConnectionString("DevDatabase");
+		return configuration.GetConnectionString("DevelopmentDatabase");
 	}
 }
 
