@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace GoalsAndTasks.WebApi.Infrastructure;
+namespace GoalsAndTasks.WebApi.Configuration;
 
 internal static class Serialization
 {

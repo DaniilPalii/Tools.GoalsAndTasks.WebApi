@@ -1,7 +1,7 @@
 using MartinCostello.OpenApi;
 using Scalar.AspNetCore;
 
-namespace GoalsAndTasks.WebApi.Infrastructure;
+namespace GoalsAndTasks.WebApi.Configuration;
 
 public static class ApiReference
 {
@@ -18,6 +18,8 @@ public static class ApiReference
 		{
 			options.WithEndpointPrefix("/reference/{documentName}");
 		});
+
+		application.Map("/", () => Results.Redirect("/reference/v1"));
 	}
 
 	/// <summary>Fixes lack of server URL in OpenAPI when the application is hosted on Azure.</summary>

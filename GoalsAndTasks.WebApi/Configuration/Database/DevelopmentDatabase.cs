@@ -3,9 +3,9 @@
 using GoalsAndTasks.DataPersistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace GoalsAndTasks.WebApi.Infrastructure.Database;
+namespace GoalsAndTasks.WebApi.Configuration.Database;
 
-public static class DevDatabase
+public static class DevelopmentDatabase
 {
 	public static void Configure(WebApplicationBuilder builder)
 	{
@@ -35,7 +35,7 @@ public static class DevDatabase
 	private static string? GetConnectionString(IServiceProvider services)
 	{
 		var configuration = services.GetRequiredService<IConfiguration>();
-		return configuration.GetConnectionString("Database");
+		return configuration.GetConnectionString("DevDatabase");
 	}
 }
 

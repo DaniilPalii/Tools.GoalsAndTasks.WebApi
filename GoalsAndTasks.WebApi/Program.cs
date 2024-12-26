@@ -1,27 +1,24 @@
 using FastEndpoints;
-using GoalsAndTasks.WebApi.Infrastructure;
-using GoalsAndTasks.WebApi.Infrastructure.Database;
+using GoalsAndTasks.WebApi.Configuration;
+using GoalsAndTasks.WebApi.Configuration.Database;
 
 var builder = WebApplication.CreateBuilder(args);
-
-#if AZURE
-AzureDatabase.Configure(builder);
-#else
-DevDatabase.Configure(builder);
-#endif
-
 builder.Services.AddFastEndpoints();
 Serialization.Configure(builder);
 ApiReference.Configure(builder);
 
-var application = builder.Build();
-
-#if !AZURE
-await DevDatabase.MigrateAsync(application);
+#if AZURE
+AzureDatabase.Configure(builder);
+#else
+DevelopmentDatabase.Configure(builder);
 #endif
 
+var application = builder.Build();
 application.MapFastEndpoints();
 ApiReference.Map(application);
-application.Map("/", () => Results.Redirect("/reference/v1"));
+
+#if !AZURE
+await DevelopmentDatabase.MigrateAsync(application);
+#endif
 
 application.Run();

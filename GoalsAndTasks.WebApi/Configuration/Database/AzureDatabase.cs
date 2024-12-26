@@ -3,7 +3,7 @@
 using GoalsAndTasks.DataPersistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace GoalsAndTasks.WebApi.Infrastructure.Database;
+namespace GoalsAndTasks.WebApi.Configuration.Database;
 
 public static class AzureDatabase
 {
@@ -26,7 +26,7 @@ public static class AzureDatabase
 
 	private static string GetConnectionString()
 	{
-		return Environment.GetEnvironmentVariable("SQLCONNSTR_Database")!;
+		return Environment.GetEnvironmentVariable("SQLCONNSTR_AzureDatabase")!;
 	}
 }
 
