@@ -16,7 +16,6 @@ DevelopmentDatabase.Configure(builder);
 var application = builder.Build();
 application.MapFastEndpoints();
 ApiReference.Map(application);
-application.MapGet("env", () => application.Environment.EnvironmentName);
 
 #if !AZURE
 await DevelopmentDatabase.MigrateAsync(application);
