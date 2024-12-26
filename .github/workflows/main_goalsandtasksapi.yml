@@ -27,7 +27,7 @@ jobs:
       - name: Create database migration bundle
         run: |
           dotnet tool install --global dotnet-ef
-          dotnet ef migrations bundle --project GoalsAndTasks.DatabaseDesign/GoalsAndTasks.DatabaseDesign.csproj -o ${{env.DOTNET_ROOT}}/artifacts/database_migration_bundle
+          dotnet ef migrations bundle --project GoalsAndTasks.WebApi.DatabaseDesign/GoalsAndTasks.WebApi.DatabaseDesign.csproj -o ${{env.DOTNET_ROOT}}/artifacts/database_migration_bundle
 
       - name: Upload artifacts for deployment job
         uses: actions/upload-artifact@v4
