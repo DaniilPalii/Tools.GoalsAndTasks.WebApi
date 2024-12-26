@@ -24,7 +24,7 @@
 		<ProjectReference Include="..\GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj" />
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(Configuration)' != 'Production' ">
+	<ItemGroup Condition=" '$(Configuration)' != 'Azure' ">
 		<ProjectReference Include="..\GoalsAndTasks.DatabaseDesign\GoalsAndTasks.DatabaseDesign.csproj" />
 	</ItemGroup>
 
