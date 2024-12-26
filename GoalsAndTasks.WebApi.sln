@@ -2,11 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.WebApi", "GoalsAndTasks.WebApi\GoalsAndTasks.WebApi.csproj", "{56AD370F-A971-40B2-A0DB-B1D59FC64858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.DataPersistence", "GoalsAndTasks.DataPersistence\GoalsAndTasks.DataPersistence.csproj", "{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.WebApi.DataPersistence", "GoalsAndTasks.WebApi.DataPersistence\GoalsAndTasks.WebApi.DataPersistence.csproj", "{2C503A6A-0386-48AF-8E38-0392AF9C6D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.Domain", "GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj", "{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.WebApi.Domain", "GoalsAndTasks.WebApi.Domain\GoalsAndTasks.WebApi.Domain.csproj", "{F597A8F2-FFAF-40F4-85BD-40F9AAB7A5A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.DatabaseDesign", "GoalsAndTasks.DatabaseDesign\GoalsAndTasks.DatabaseDesign.csproj", "{97AE6D65-F1A2-404B-9EF3-43063B1CDAC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalsAndTasks.WebApi.DatabaseDesign", "GoalsAndTasks.WebApi.DatabaseDesign\GoalsAndTasks.WebApi.DatabaseDesign.csproj", "{97AE6D65-F1A2-404B-9EF3-43063B1CDAC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

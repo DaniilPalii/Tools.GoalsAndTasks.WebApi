@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\GoalsAndTasks.DataPersistence\GoalsAndTasks.DataPersistence.csproj"/>
+		<ProjectReference Include="..\GoalsAndTasks.WebApi.DataPersistence\GoalsAndTasks.WebApi.DataPersistence.csproj" />
 	</ItemGroup>
 
 </Project>

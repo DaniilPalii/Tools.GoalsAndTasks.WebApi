@@ -4,16 +4,19 @@ using GoalsAndTasks.DataPersistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GoalsAndTasks.DatabaseDesign.Migrations
+namespace GoalsAndTasks.WebApi.DatabaseDesign.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20241222155103_AddTasksTable")]
+    partial class AddTasksTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,17 +36,11 @@ namespace GoalsAndTasks.DatabaseDesign.Migrations
                     b.Property<DateOnly?>("DueDate")
                         .HasColumnType("date");
 
-                    b.Property<TimeOnly?>("DueTime")
-                        .HasColumnType("time");
-
                     b.Property<bool>("IsComplete")
                         .HasColumnType("bit");
 
                     b.Property<DateOnly?>("StartDate")
                         .HasColumnType("date");
-
-                    b.Property<TimeOnly?>("StartTime")
-                        .HasColumnType("time");
 
                     b.Property<string>("Title")
                         .IsRequired()

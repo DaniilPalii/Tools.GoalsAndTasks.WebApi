@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GoalsAndTasks.DatabaseDesign.Migrations
+namespace GoalsAndTasks.WebApi.DatabaseDesign.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241222155103_AddTasksTable")]
-    partial class AddTasksTable
+    [Migration("20241225161714_AddTimeColumnsToTaskTable")]
+    partial class AddTimeColumnsToTaskTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace GoalsAndTasks.DatabaseDesign.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GoalsAndTasks.DataPersistence.Entities.Task", b =>
+            modelBuilder.Entity("GoalsAndTasks.WebApi.DataPersistence.Entities.Task", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,11 +36,17 @@ namespace GoalsAndTasks.DatabaseDesign.Migrations
                     b.Property<DateOnly?>("DueDate")
                         .HasColumnType("date");
 
+                    b.Property<TimeOnly?>("DueTime")
+                        .HasColumnType("time");
+
                     b.Property<bool>("IsComplete")
                         .HasColumnType("bit");
 
                     b.Property<DateOnly?>("StartDate")
                         .HasColumnType("date");
+
+                    b.Property<TimeOnly?>("StartTime")
+                        .HasColumnType("time");
 
                     b.Property<string>("Title")
                         .IsRequired()

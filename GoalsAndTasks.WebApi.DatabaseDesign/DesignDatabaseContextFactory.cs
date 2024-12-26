@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace GoalsAndTasks.DatabaseDesign;
+namespace GoalsAndTasks.WebApi.DatabaseDesign;
 
 public sealed class DesignDatabaseContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
 {

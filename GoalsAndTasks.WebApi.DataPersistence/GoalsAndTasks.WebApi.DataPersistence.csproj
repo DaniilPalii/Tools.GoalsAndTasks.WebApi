@@ -6,6 +6,7 @@
 		<Nullable>enable</Nullable>
 		<Configurations>Debug;Release;Azure</Configurations>
 		<Platforms>AnyCPU</Platforms>
+		<RootNamespace>GoalsAndTasks.DataPersistence</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)' == 'Azure' ">
@@ -18,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\GoalsAndTasks.Domain\GoalsAndTasks.Domain.csproj"/>
+		<ProjectReference Include="..\GoalsAndTasks.WebApi.Domain\GoalsAndTasks.WebApi.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

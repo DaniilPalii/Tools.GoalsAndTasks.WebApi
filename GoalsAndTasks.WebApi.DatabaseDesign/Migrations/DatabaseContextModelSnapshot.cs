@@ -4,19 +4,16 @@ using GoalsAndTasks.DataPersistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GoalsAndTasks.DatabaseDesign.Migrations
+namespace GoalsAndTasks.WebApi.DatabaseDesign.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241225161714_AddTimeColumnsToTaskTable")]
-    partial class AddTimeColumnsToTaskTable
+    partial class DatabaseContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +22,7 @@ namespace GoalsAndTasks.DatabaseDesign.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GoalsAndTasks.DataPersistence.Entities.Task", b =>
+            modelBuilder.Entity("GoalsAndTasks.WebApi.DataPersistence.Entities.Task", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
