@@ -22,13 +22,7 @@ public static class Database
 
 	private static void ConfigureDatabaseContext(IServiceProvider services, DbContextOptionsBuilder options)
 	{
-		var configuration = services.GetRequiredService<IConfiguration>();
-		var connectionString =
-#if !AZURE
-			configuration.GetConnectionString("Database");
-#else
-			Environment.GetEnvironmentVariable("SQLCONNSTR_Database");
-#endif
+		var connectionString = GetConnectionString(services);
 
 		options.UseSqlServer(
 			connectionString,
@@ -39,5 +33,15 @@ public static class Database
 #endif
 				builder.EnableRetryOnFailure(maxRetryCount: 10);
 			});
+	}
+
+	private static string? GetConnectionString(IServiceProvider services)
+	{
+#if AZURE
+		return Environment.GetEnvironmentVariable("SQLCONNSTR_Database");
+#else
+		var configuration = services.GetRequiredService<IConfiguration>();
+		return configuration.GetConnectionString("Database");
+#endif
 	}
 }
