@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GoalsAndTasks.DataPersistence.Entities;
+namespace GoalsAndTasks.WebApi.DataPersistence.Entities;
 
 public class Task
 {

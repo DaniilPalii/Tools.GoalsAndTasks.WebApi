@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace GoalsAndTasks.DataPersistence;
+namespace GoalsAndTasks.WebApi.DataPersistence;
 
 public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options)
 {

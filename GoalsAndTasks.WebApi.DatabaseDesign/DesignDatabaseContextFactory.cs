@@ -1,4 +1,4 @@
-﻿using GoalsAndTasks.DataPersistence;
+﻿using GoalsAndTasks.WebApi.DataPersistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 

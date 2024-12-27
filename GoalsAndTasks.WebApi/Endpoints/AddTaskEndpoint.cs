@@ -1,5 +1,5 @@
 using FastEndpoints;
-using GoalsAndTasks.DataPersistence;
+using GoalsAndTasks.WebApi.DataPersistence;
 
 namespace GoalsAndTasks.WebApi.Endpoints;
 

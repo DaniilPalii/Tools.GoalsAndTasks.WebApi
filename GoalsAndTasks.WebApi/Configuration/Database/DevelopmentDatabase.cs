@@ -1,6 +1,6 @@
 #if !AZURE
 
-using GoalsAndTasks.DataPersistence;
+using GoalsAndTasks.WebApi.DataPersistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace GoalsAndTasks.WebApi.Configuration.Database;
