@@ -8,11 +8,15 @@ Serialization.Configure(builder);
 ApiReference.Configure(builder);
 
 #if AZURE
-AzureDatabase.Configure(builder);
-Cors.ConfigureSpecificOrigins(builder);
+{
+	AzureDatabase.Configure(builder);
+	Cors.ConfigureSpecificOrigins(builder);
+}
 #else
-DevelopmentDatabase.Configure(builder);
-Cors.ConfigureAnyOrigin(builder);
+{
+	DevelopmentDatabase.Configure(builder);
+	Cors.ConfigureAnyOrigin(builder);
+}
 #endif
 
 var application = builder.Build();
@@ -21,7 +25,9 @@ ApiReference.Map(application);
 Cors.Apply(application);
 
 #if !AZURE
-await DevelopmentDatabase.MigrateAsync(application);
+{
+	await DevelopmentDatabase.MigrateAsync(application);
+}
 #endif
 
 application.Run();
