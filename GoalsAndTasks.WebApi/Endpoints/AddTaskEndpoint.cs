@@ -3,7 +3,7 @@ using GoalsAndTasks.WebApi.DataPersistence;
 
 namespace GoalsAndTasks.WebApi.Endpoints;
 
-public class AddTaskEndpoint : Endpoint<TransferValues.NewTask>
+public class AddTaskEndpoint : Endpoint<TransferValues.NewTask, TransferValues.Task>
 {
 	public override void Configure()
 	{
@@ -15,7 +15,7 @@ public class AddTaskEndpoint : Endpoint<TransferValues.NewTask>
 	{
 		var databaseContext = TryResolve<DatabaseContext>()!;
 
-		databaseContext.Tasks.Add(new()
+		var addedTaskEntry = databaseContext.Tasks.Add(new()
 		{
 			Title = task.Title,
 			StartDate = task.StartDate,
@@ -27,6 +27,15 @@ public class AddTaskEndpoint : Endpoint<TransferValues.NewTask>
 
 		await databaseContext.SaveChangesAsync(cancellationToken);
 
-		await SendOkAsync(cancellationToken);
+		var addedTask = new TransferValues.Task(
+			Id: addedTaskEntry.Entity.Id,
+			Title: addedTaskEntry.Entity.Title,
+			StartDate: addedTaskEntry.Entity.StartDate,
+			StartTime: addedTaskEntry.Entity.StartTime,
+			DueDate: addedTaskEntry.Entity.DueDate,
+			DueTime: addedTaskEntry.Entity.DueTime,
+			IsComplete: addedTaskEntry.Entity.IsComplete);
+
+		await SendOkAsync(addedTask, cancellationToken);
 	}
 }
