@@ -6,7 +6,10 @@ public static class Cors
 	{
 		builder.Services.AddCors(
 			options => options.AddDefaultPolicy(
-				policy => policy.AllowAnyOrigin()));
+				policy => policy
+					.AllowAnyOrigin()
+					.AllowAnyMethod()
+					.AllowAnyHeader()));
 	}
 
 	public static void ConfigureSpecificOrigins(WebApplicationBuilder builder)
@@ -17,7 +20,10 @@ public static class Cors
 
 		builder.Services.AddCors(
 			options => options.AddDefaultPolicy(
-				policy => policy.WithOrigins(origins)));
+				policy => policy
+					.WithOrigins(origins)
+					.AllowAnyMethod()
+					.AllowAnyHeader()));
 	}
 
 	public static void Apply(WebApplication application)
