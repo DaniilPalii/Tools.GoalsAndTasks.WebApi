@@ -19,7 +19,7 @@ public class Task
 
 	public bool IsComplete { get; set; }
 
-	internal sealed class Configuration : IEntityTypeConfiguration<Task>
+	internal sealed class EntityConfiguration : IEntityTypeConfiguration<Task>
 	{
 		public void Configure(EntityTypeBuilder<Task> builder)
 		{

@@ -1,6 +1,6 @@
 param([string]$MigrationName)
 
-$project = "$PSScriptRoot\..\GoalsAndTasks.DatabaseDesign.csproj"
+$project = "$PSScriptRoot\..\GoalsAndTasks.WebApi.DatabaseDesign.csproj"
 
 dotnet ef migrations has-pending-model-changes `
 	--project $project `
