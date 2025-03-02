@@ -9,7 +9,6 @@ public class GetTaskEndpoint : EndpointWithoutRequest<TransferValues.Task>
 	public override void Configure()
 	{
 		Get("tasks/{id:long}");
-		AllowAnonymous();
 	}
 
 	public override async Task HandleAsync(CancellationToken cancellationToken)

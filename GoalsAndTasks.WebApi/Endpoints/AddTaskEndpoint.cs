@@ -8,7 +8,6 @@ public class AddTaskEndpoint : Endpoint<TransferValues.NewTask, TransferValues.T
 	public override void Configure()
 	{
 		Post("tasks");
-		AllowAnonymous();
 	}
 
 	public override async Task HandleAsync(TransferValues.NewTask task, CancellationToken cancellationToken)

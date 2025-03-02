@@ -1,12 +1,12 @@
-using FastEndpoints;
 using GoalsAndTasks.WebApi.Configuration;
 using GoalsAndTasks.WebApi.Configuration.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-	builder.Services.AddFastEndpoints();
+	Endpoints.Configure(builder);
 	Serialization.Configure(builder);
 	ApiReference.Configure(builder);
+	Auth.Configure(builder);
 
 #if AZURE
 	AzureDatabase.Configure(builder);
@@ -19,9 +19,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 var application = builder.Build();
 {
-	application.MapFastEndpoints();
+	Endpoints.Map(application);
 	ApiReference.Map(application);
 	Cors.Apply(application);
+	Auth.Apply(application);
 
 #if !AZURE
 	await DevelopmentDatabase.MigrateAsync(application);
